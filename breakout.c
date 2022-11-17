@@ -1,8 +1,5 @@
 #include "raylib.h"
 #include <stdio.h>
-#include <stdlib.h>
-#include <math.h>
-#include <time.h>
 
 // @author Hugo Lindfors (リンドフォースヒューゴ)
 
@@ -65,12 +62,6 @@ int main(void)
     ball.velocity = (Vector2){0.0f, 4.0f};
     ball.radius = 10.0f;
     ball.color = LIGHTGRAY;
-
-    // box.position = (Vector2){screen_width / 2, screen_height / 2 - 200};
-    // box.width = 200;
-    // box.height = 20;
-    // box.active = true;
-    // box.color = YELLOW;
 
     int j = 0;
     for (int i = 0; i < 60; i++)
@@ -167,12 +158,6 @@ int main(void)
             .width = 20,
             .height = paddle.height};
 
-        // Rectangle box_rec = {
-        //     .x = box.position.x,
-        //     .y = box.position.y,
-        //     .width = box.width,
-        //     .height = box.height};
-
         // update
 
         if (IsKeyDown(KEY_RIGHT) || IsKeyDown(KEY_D))
@@ -223,13 +208,6 @@ int main(void)
             fail_counter ++;
         }
 
-        // if (CheckCollisionCircleRec(ball.position, ball.radius, box_rec) && box.active)
-        // {
-        //     ball.velocity.x = -ball.velocity.x;
-        //     ball.velocity.y = -ball.velocity.y;
-        //     box.active = false;
-        // }
-
         for (int i = 0; i < 60; i++)
         {
             Rectangle box_rec = {
@@ -252,7 +230,7 @@ int main(void)
             victory = true;
         };
 
-        if (fail_counter >= 10)
+        if (fail_counter >= 3)
         {
             game_over = true;
         };
@@ -265,9 +243,6 @@ int main(void)
             if (!game_over && !victory)
             {
                 ClearBackground(BLACK);
-
-                // if (box.active)
-                //     DrawRectangle(box.position.x, box.position.y, box.width, box.height, box.color);
 
                 for (int i = 0; i < 60; i++)
                 {
